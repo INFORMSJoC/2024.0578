@@ -1,0 +1,13 @@
+ibcdfo==1.0.0
+ipdb==0.13.13
+matplotlib==3.7.1
+networkx==3.2.1
+numpy==2.1.1
+PyYAML==6.0
+PyYAML==6.0.2
+qiskit==1.2.1
+qiskit_aer==0.15.1
+qiskit_aqua==0.8.0
+qiskit_ignis==0.7.1
+tqdm==4.66.5
+utils==1.0.2
