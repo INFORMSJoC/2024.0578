@@ -1,0 +1,29 @@
+name: Check python with Flake8
+on: ["pull_request"]
+jobs:
+  flake8:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # We only need to check style with a single python version & OS
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.11"]
+    steps:
+    ##-- General Setup Steps
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Setup python with tox
+      run: |
+        ./.github/workflows/setup_tox_github_action.sh
+        pip install flake8
+        pip list
+
+    ##-- Test Execution Step
+    # If we stop running this script, check if testTools needs updating
+    - name: Check all python packages
+      run: ./tools/check_python_code.sh
